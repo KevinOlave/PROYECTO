@@ -1,0 +1,24 @@
+{
+    "lugares": [
+        {
+            "id": 1,
+            "nombre": "Parque Central",
+            "descripcion": "Un parque hermoso en el corazón de la ciudad.",
+            "ubicacion": {
+                "latitud": 40.7128,
+                "longitud": -74.0060
+            },
+            "tipo": "parque"
+        },
+        {
+            "id": 2,
+            "nombre": "Museo de Historia",
+            "descripcion": "Un museo dedicado a la historia local.",
+            "ubicacion": {
+                "latitud": 40.7127,
+                "longitud": -74.0059
+            },
+            "tipo": "museo"
+        }
+    ]
+}

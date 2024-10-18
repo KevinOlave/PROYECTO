@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mapa de Lugares</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mapa de Lugares</h1>
+    <div id="map"></div>
+    <script>
+        function initMap() {
+            fetch('/lugares')
+                .then(response => response.json())
+                .then(data => {
+                    const lugares = data.lugares;
+                    const map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 12,
+                        center: { lat: lugares[0].ubicacion.latitud, lng: lugares[0].ubicacion.longitud }
+                    });
+
+                    lugares.forEach(lugar => {
+                        new google.maps.Marker({
+                            position: { lat: lugar.ubicacion.latitud, lng: lugar.ubicacion.longitud },
+                            map: map,
+                            title: lugar.nombre
+                        });
+                    });
+                });
+        }
+
+        window.onload = initMap;
+    </script>
+</body>
+</html>
